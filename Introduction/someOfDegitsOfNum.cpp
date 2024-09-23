@@ -15,7 +15,6 @@ int calculate_digits_Sum(int n){
 }
 
 int main(){
-
   cout<<"Enter number to calculate sum: "; int n; cin>> n;
   cout<<calculate_digits_Sum(n);
   return 0;

@@ -5,7 +5,7 @@ using namespace std;
 
 int main(){
 
-  cout<<"Enter a number: "; int n;cin>> n;
+  cout<<"Enter a number: "; int n; cin>> n;
   int x = n-1;
   if(!(n & x)){
     cout<<"True";
