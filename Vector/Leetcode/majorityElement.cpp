@@ -39,25 +39,24 @@ using namespace std;
 
 
 // Moore's algorithm
-int majorityElement(vector<int>& nums){
-  int n = nums.size();
-  int freq = 0, ans = 0;
-  for(int i=0; i<n; i++){
-    if(freq == 0){
-      freq= 1; ans= nums[i];
+int majorityElement(vector<int>& nums) {
+    int ans = 0;
+    int freq = 0;
+    for(int i = 0; i < nums.size(); i++) {
+        if(freq == 0) {
+          ans = nums[i];
+        }
+        if(ans == nums[i]) {
+            freq++;
+        } else {
+            freq--;
+        }
     }
-    if(ans = nums[i]){
-      freq++;
-    } 
-    else{
-      freq--;
-    }
-  }
-  return ans;
+    return ans;
 }
 
 int main(){
-  vector<int> nums = {2,2,1,1,1,2,2};
+  vector<int> nums = {6,5,5};
   cout<< majorityElement(nums);
 
   return 0;
