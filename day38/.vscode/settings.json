@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "vector": "cpp",
+    "unordered_set": "cpp",
+    "xstring": "cpp",
+    "iostream": "cpp",
+    "ostream": "cpp"
+  }
+}

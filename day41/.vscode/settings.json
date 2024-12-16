@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "vector": "cpp",
+    "unordered_map": "cpp",
+    "xstring": "cpp"
+  }
+}

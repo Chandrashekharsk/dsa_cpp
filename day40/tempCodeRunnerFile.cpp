@@ -1,0 +1,1 @@
+(tar % nums[0] == 0) ? (tar / nums[0]) : 1e9
