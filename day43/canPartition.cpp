@@ -2,8 +2,6 @@
 #include<vector>
 using namespace std;
 
-
-
 bool canPartition(vector<int>& nums){
   int totSum = 0;
   for (auto i: nums) totSum += i;
