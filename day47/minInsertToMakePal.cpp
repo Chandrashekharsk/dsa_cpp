@@ -1,4 +1,4 @@
-// Minimum string intertion to make string palindromic
+// Minimum string insertion to make string palindromic
 #include<iostream>
 #include<vector>
 #include<algorithm>
