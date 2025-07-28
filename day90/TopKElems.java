@@ -26,22 +26,21 @@ public class TopKElems {
 
     // approach 2
     // Map<Integer, Integer> m = new HashMap<>();
-    // for(int n: nums){
-    // m.put(n, m.getOrDefault(n, 0)+1);
+    // for (int n : nums) {
+    //   m.put(n, m.getOrDefault(n, 0) + 1);
     // }
 
     // // max_heap - by deefault pq is min heap(descending_order)
-    // PriorityQueue<Integer> heap = new PriorityQueue<>((a, b)->
-    // m.get(a)-m.get(b));
-    // for(int key: m.keySet()){
-    // heap.add(key);
-    // if(heap.size()>k){
-    // heap.poll();
-    // }
+    // PriorityQueue<Integer> heap = new PriorityQueue<>((a, b) -> m.get(a) - m.get(b));
+    // for (int key : m.keySet()) {
+    //   heap.add(key);
+    //   if (heap.size() > k) {
+    //     heap.poll();
+    //   }
     // }
     // int[] ans = new int[k];
-    // for(int i=0; i<k; ++i){
-    // ans[i] = heap.poll();
+    // for (int i = 0; i < k; ++i) {
+    //   ans[i] = heap.poll();
     // }
     // return ans;
 
@@ -49,26 +48,26 @@ public class TopKElems {
     Map<Integer, Integer> m = new HashMap<>();
     int maxFreq = 1;
     for (int n : nums) {
-      m.put(n, m.getOrDefault(n, 0) + 1);
-      maxFreq = Math.max(maxFreq, m.get(n));
+    m.put(n, m.getOrDefault(n, 0) + 1);
+    maxFreq = Math.max(maxFreq, m.get(n));
     }
 
     @SuppressWarnings("unchecked")
     List<Integer>[] freqList = (List<Integer>[]) new ArrayList[maxFreq + 1];
     for (int i = 0; i < maxFreq + 1; ++i) {
-      freqList[i] = new ArrayList<>();
+    freqList[i] = new ArrayList<>();
     }
     for (Map.Entry<Integer, Integer> entry : m.entrySet()) {
-      freqList[entry.getValue()].add(entry.getKey());
+    freqList[entry.getValue()].add(entry.getKey());
     }
 
     int[] ans = new int[k];
     int idx = 0;
     for (int i = maxFreq + 1 - 1; i >= 0 && idx < k; --i) {
-      for (int n : freqList[i]) {
-        ans[idx++] = n;
-        if (idx == k) break;
-      }
+    for (int n : freqList[i]) {
+    ans[idx++] = n;
+    if (idx == k) break;
+    }
     }
     return ans;
   }
