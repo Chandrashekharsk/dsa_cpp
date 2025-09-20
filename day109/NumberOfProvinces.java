@@ -1,25 +1,23 @@
+// 547. Number of Provinces 
 
 public class NumberOfProvinces {
-  private static int[][]  dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
-  private void dfs(int r, int c, int[][] isConnected, int N){
-    if(isConnected[r][c] == 0) return;
-    isConnected[r][c] = 0;
-    for(int[] d: dirs){
-      int nr = r+d[0], nc = c+d[1];
-      if(nr>=0 && nc>=0 && nr<N && nc<N) dfs(nr, nc, isConnected, N);
+  private void dfs(int city, int[][] isConnected,boolean[] vis, int N){
+    vis[city] = true;
+
+    for(int neighbourCity=0; neighbourCity<N; ++neighbourCity){
+      if(isConnected[city][neighbourCity]==1 && !vis[neighbourCity]) dfs(neighbourCity, isConnected, vis, N);
     }
   }
   
   public int findCircleNum(int[][] isConnected) {
     int N = isConnected.length;
     int provincesCnt = 0;
+    boolean[]  vis = new boolean[N];
 
     for(int i=0; i<N; ++i){
-      for(int j=0; j<N; ++j){
-        if(isConnected[i][j]==1){
-          dfs(i,j, isConnected, N);
-          ++provincesCnt;
-        }
+      if(!vis[i]){
+        dfs(i, isConnected, vis, N);
+        ++provincesCnt;
       }
     }
     return provincesCnt;
